@@ -15,3 +15,21 @@ const token = getSecret("clientId");
     data-network="1">
   </div>
 </Layout>
+
+<script>
+  window.addEventListener("m-authenticated", async () => {
+    console.log("autentiquei");
+
+    console.log(
+      await window.manifold.dataClient.getNFT({
+        contractAddress: "0x494431c5d232B847b1031681cAae24c21D14Df68",
+        tokenId: 33,
+      })
+    );
+  });
+
+  window.addEventListener("m-unauthenticated", () => {
+    console.log("desautentiquei");
+    console.log(window.manifold);
+  });
+</script>
